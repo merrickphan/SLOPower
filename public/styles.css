@@ -21,9 +21,10 @@ html {
 
 body {
   margin: 0;
-  font-family: "Rajdhani", system-ui, sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  font-weight: 400;
   color: var(--text);
   background: var(--bg-deep);
 }
@@ -32,10 +33,10 @@ h1,
 h2,
 h3,
 .display {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
 }
 
 a {
@@ -68,14 +69,48 @@ a:hover {
 }
 
 .logo {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 1.75rem;
-  color: var(--white);
-  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
 }
 
-.logo span {
-  color: var(--accent);
+.logo:hover {
+  filter: brightness(1.06);
+}
+
+.logo-img {
+  display: block;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-img--header {
+  height: 48px;
+  width: auto;
+  max-width: 140px;
+}
+
+.logo-img--hero {
+  width: min(72vw, 240px);
+  max-height: min(38vh, 260px);
+  margin: 0 auto 0.75rem;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.logo-img--footer {
+  height: 56px;
+  width: auto;
+  margin: 0 auto 1rem;
+  opacity: 0.95;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+.logo-img--section {
+  height: 72px;
+  width: auto;
+  margin: 0.75rem auto 1.25rem;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
 }
 
 nav ul {
@@ -89,10 +124,10 @@ nav ul {
 
 nav a {
   color: var(--text);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.8125rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 nav a:hover {
@@ -102,9 +137,9 @@ nav a:hover {
 
 .header-cta {
   font-weight: 700;
-  font-size: 0.95rem;
-  padding: 0.4rem 1rem;
-  border-radius: 4px;
+  font-size: 0.875rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
   background: var(--gradient-nav);
   color: var(--white);
   text-decoration: none;
@@ -135,28 +170,20 @@ nav a:hover {
   margin-bottom: 0.5rem;
 }
 
-.hero h1 {
-  margin: 0;
-  font-size: clamp(3.5rem, 12vw, 7.5rem);
+.hero-title {
+  margin: 0.35rem 0 0;
+  font-size: clamp(1.65rem, 4.5vw, 2.75rem);
+  font-weight: 700;
   color: var(--white);
-}
-
-.hero h1 .accent {
-  color: var(--accent);
 }
 
 .hero .tagline {
-  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
   color: var(--text);
   max-width: 36rem;
-  margin: 1rem auto 0;
-  font-weight: 500;
-}
-
-.hero h2 {
-  margin: 1.75rem 0 0;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  color: var(--white);
+  margin: 0.75rem auto 0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .badge {
@@ -204,13 +231,14 @@ section:nth-of-type(even) {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.95rem;
+  font-size: 0.8125rem;
   margin-bottom: 0.5rem;
 }
 
 section h2 {
   margin: 0 0 1.5rem;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.85rem, 4.5vw, 2.85rem);
+  font-weight: 700;
   color: var(--white);
 }
 
@@ -233,7 +261,7 @@ section h2 {
 .service-card {
   text-align: center;
   padding: 1.25rem 1rem;
-  border-radius: 8px;
+  border-radius: 16px;
   background: var(--bg-card);
   border: 1px solid rgba(127, 192, 245, 0.2);
 }
@@ -246,12 +274,12 @@ section h2 {
 
 .service-card h3 {
   margin: 0;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 0.95rem;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: #f0f6ff;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .pricing-grid {
@@ -263,7 +291,7 @@ section h2 {
 
 .price-card {
   padding: 1.75rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 20px;
   background: linear-gradient(
     165deg,
     rgba(127, 192, 245, 0.18),
@@ -274,16 +302,19 @@ section h2 {
 
 .price-card h3 {
   margin: 0;
-  font-size: 1.65rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--white);
 }
 
 .price-card .price {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 3rem;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 2.85rem;
+  font-weight: 900;
   color: var(--white);
   margin: 0.5rem 0;
   line-height: 1;
+  letter-spacing: -0.03em;
 }
 
 .price-card .note {
@@ -306,15 +337,17 @@ section h2 {
 .addons {
   margin-top: 2.5rem;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 20px;
   background: var(--bg-card);
   border: 1px solid rgba(127, 192, 245, 0.15);
 }
 
 .addons h3 {
   margin: 0 0 1rem;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
+  font-weight: 900;
   color: var(--white);
+  letter-spacing: -0.02em;
 }
 
 .addon-row {
@@ -336,9 +369,11 @@ section h2 {
 }
 
 .addon-row .addon-price {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Roboto", system-ui, sans-serif;
   font-size: 1.35rem;
+  font-weight: 900;
   color: var(--accent);
+  letter-spacing: -0.02em;
 }
 
 .contact-grid {
@@ -350,7 +385,7 @@ section h2 {
 
 .contact-card {
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 16px;
   background: var(--bg-card);
   border: 1px solid rgba(127, 192, 245, 0.2);
 }
@@ -365,17 +400,27 @@ section h2 {
 }
 
 .contact-card .big {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 2rem;
+  font-family: "Roboto", system-ui, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: var(--white);
+  letter-spacing: -0.01em;
 }
 
 .site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem 1.25rem;
   text-align: center;
   border-top: 1px solid rgba(127, 192, 245, 0.12);
   color: var(--text-muted);
   font-size: 0.95rem;
+}
+
+.site-footer p {
+  margin: 0;
+  max-width: 36rem;
 }
 
 .site-footer strong {
@@ -386,6 +431,11 @@ section h2 {
   .hero {
     text-align: left;
     align-items: flex-start;
+  }
+
+  .logo-img--hero {
+    margin-left: 0;
+    margin-right: auto;
   }
 
   .hero .tagline {

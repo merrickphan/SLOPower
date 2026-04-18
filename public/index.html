@@ -7,13 +7,15 @@
     <meta property="og:title" content="SLO Power" />
     <meta property="og:type" content="website" />
     <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="images/logo.png" as="image" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="images/logo.png" type="image/png" />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
@@ -21,14 +23,23 @@
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
       />
     </noscript>
   </head>
   <body>
     <header class="site-header">
       <div class="header-inner">
-        <a class="logo" href="#">SLO <span>POWER</span></a>
+        <a class="logo" href="#" aria-label="SLO Power home">
+          <img
+            class="logo-img logo-img--header"
+            src="images/logo.png"
+            alt=""
+            width="200"
+            height="200"
+            decoding="async"
+          />
+        </a>
         <nav aria-label="Primary">
           <ul>
             <li><a href="#about">About</a></li>
@@ -43,10 +54,17 @@
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="logo-img logo-img--hero"
+          src="images/logo.png"
+          alt="SLO Power"
+          width="400"
+          height="400"
+          decoding="async"
+        />
         <p class="eyebrow">San Luis Obispo · Est. 2025</p>
-        <h1 id="hero-title">SLO <span class="accent">POWER</span></h1>
+        <h1 id="hero-title" class="hero-title">Local kids. Serious detail.</h1>
         <p class="tagline">Clean and bright, done just right.</p>
-        <h2>Local kids. Serious detail.</h2>
         <p class="badge">SLO High School · Class of 2029</p>
         <p class="stat">✦ 50+ details completed</p>
       </section>
@@ -174,6 +192,15 @@
         <div class="section-inner">
           <p class="section-label">Reach us</p>
           <h2 id="contact-heading">Book or ask a question</h2>
+          <img
+            class="logo-img logo-img--section"
+            src="images/logo.png"
+            alt=""
+            width="200"
+            height="200"
+            decoding="async"
+            loading="lazy"
+          />
           <div class="contact-grid">
             <div class="contact-card">
               <p class="label">Call or text</p>
@@ -198,6 +225,15 @@
     </main>
 
     <footer class="site-footer">
+      <img
+        class="logo-img logo-img--footer"
+        src="images/logo.png"
+        alt=""
+        width="160"
+        height="160"
+        decoding="async"
+        loading="lazy"
+      />
       <p>
         © 2025 <strong>SLO POWER</strong> · San Luis Obispo, CA · Clean and
         bright, done just right
