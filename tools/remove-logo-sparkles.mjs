@@ -52,9 +52,37 @@ function isChromeBorder(r, g, b) {
   const l = lum(r, g, b);
   const mx = Math.max(r, g, b);
   const mn = Math.min(r, g, b);
-  if (b > r + 18) return false;
-  if (mx - mn < 10 && l > 200) return false;
-  return l > 175 && mx > 182 && mx - mn < 42;
+  const sat = mx - mn;
+  // Flat near-white center highlights (not rim)
+  if (sat < 10 && l > 200) return false;
+  // Deep interior blues (not rim) — allow only clearly saturated dark blues
+  if (b > r + 40 && l < 115) return false;
+
+  // Bright silver rim (original heuristic)
+  if (l > 175 && mx > 182 && sat < 42) return true;
+  // Cool / slightly blue-tinted chrome on lower rim and anti-alias (was misclassified before)
+  if (l >= 120 && l <= 195 && mx > 145 && sat < 52) return true;
+  return false;
+}
+
+/** True if this pixel is on or touches the outer edge of the shield (alpha). Never rewrite these. */
+function touchesLowAlpha(x, y) {
+  for (const [dx, dy] of [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+    [1, 1],
+    [1, -1],
+    [-1, 1],
+    [-1, -1],
+  ]) {
+    const nx = x + dx,
+      ny = y + dy;
+    if (nx < 0 || nx >= w || ny < 0 || ny >= h) return true;
+    if (px[idx(nx, ny) + 3] < 40) return true;
+  }
+  return false;
 }
 
 function isVeryDarkInterior(r, g, b) {
@@ -109,6 +137,7 @@ for (let y = yBand; y <= maxY; y++) {
       a = px[o + 3];
     if (a < 35) continue;
     if (isChromeBorder(r, g, b)) continue;
+    if (touchesLowAlpha(x, y)) continue;
     if (isVeryDarkInterior(r, g, b)) continue;
 
     const inTip = y >= yTip;

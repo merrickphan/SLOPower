@@ -31,6 +31,7 @@ html {
 body {
   margin: 0;
   position: relative;
+  overflow-x: hidden;
   font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   font-size: 1.0625rem;
   line-height: 1.55;
@@ -74,6 +75,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 20;
+  overflow: visible;
   background: rgba(13, 22, 38, 0.88);
   backdrop-filter: blur(14px) saturate(1.2);
   border-bottom: 1px solid rgba(127, 192, 245, 0.15);
@@ -101,6 +103,7 @@ a:hover {
   align-items: center;
   line-height: 0;
   text-decoration: none;
+  overflow: visible;
 }
 
 .logo:hover .logo-img--header {
@@ -115,12 +118,16 @@ a:hover {
   display: block;
   height: auto;
   object-fit: contain;
+  object-position: center bottom;
+  flex-shrink: 0;
+  overflow: visible;
 }
 
 .logo-img--header {
-  height: 48px;
-  width: auto;
+  max-height: 48px;
   max-width: 140px;
+  width: auto;
+  height: auto;
 }
 
 .logo-img--header.logo-img--glow {
@@ -132,25 +139,54 @@ a:hover {
     drop-shadow(0 4px 12px rgba(0, 0, 0, 0.32));
 }
 
-.logo-img--hero {
-  width: min(72vw, 240px);
-  max-height: min(38vh, 260px);
+.hero-logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 auto 0.75rem;
+  overflow: visible;
 }
 
-.logo-img--hero.logo-img--glow {
-  filter:
-    drop-shadow(0 0 3px var(--logo-glow-core))
-    drop-shadow(0 0 10px var(--logo-glow-near))
-    drop-shadow(0 0 22px var(--logo-glow-mid))
-    drop-shadow(0 0 40px var(--logo-glow-wide))
-    drop-shadow(0 0 64px var(--logo-glow-halo))
-    drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
+/* Soft cyan halo behind the mark (not clipped like stacked img drop-shadows). */
+.hero-logo::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  z-index: -1;
+  width: min(120%, 320px);
+  height: min(95%, 260px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 52% 48% at 50% 50%,
+    rgba(127, 192, 245, 0.42) 0%,
+    rgba(74, 157, 232, 0.18) 42%,
+    rgba(13, 22, 38, 0) 72%
+  );
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.logo-img--hero {
+  position: relative;
+  z-index: 0;
+  display: block;
+  max-width: min(72vw, 280px);
+  max-height: min(46vh, 300px);
+  width: auto;
+  height: auto;
+  margin: 0;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.42));
 }
 
 .logo-img--footer {
-  height: 56px;
+  max-height: 56px;
+  max-width: 180px;
   width: auto;
+  height: auto;
   margin: 0 auto 1rem;
   opacity: 0.95;
 }
@@ -239,7 +275,7 @@ nav a:focus-visible {
 
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   min-height: 72vh;
   display: flex;
   flex-direction: column;
@@ -408,60 +444,6 @@ section:nth-of-type(even) {
   background: rgba(0, 0, 0, 0.18);
 }
 
-.press-band {
-  padding: 1.75rem 1.25rem;
-  background: linear-gradient(
-    90deg,
-    rgba(127, 192, 245, 0.1) 0%,
-    rgba(42, 107, 196, 0.18) 50%,
-    rgba(127, 192, 245, 0.1) 100%
-  );
-  border-block: 1px solid rgba(127, 192, 245, 0.2);
-}
-
-.press-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.35rem;
-}
-
-.press-kicker {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-}
-
-.press-text {
-  margin: 0;
-  font-size: 1.05rem;
-  color: var(--text);
-  max-width: 40rem;
-}
-
-.press-link {
-  font-weight: 700;
-  color: var(--white);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(127, 192, 245, 0.5);
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.press-link:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.press-text em {
-  font-style: normal;
-  color: var(--accent);
-}
-
 .hours-lead {
   margin-bottom: 1.25rem;
 }
@@ -589,10 +571,18 @@ section h2 {
 }
 
 .service-card .icon {
-  font-size: 2rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 0.5rem;
+  color: var(--accent);
   transition: transform 0.4s var(--ease-spring);
+}
+
+.service-card .icon-svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: block;
 }
 
 .service-card:hover .icon {
@@ -804,6 +794,7 @@ section h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
   padding: 2rem 1.25rem;
   text-align: center;
   border-top: 1px solid rgba(127, 192, 245, 0.12);
@@ -826,7 +817,7 @@ section h2 {
     align-items: flex-start;
   }
 
-  .logo-img--hero {
+  .hero-logo {
     margin-left: 0;
     margin-right: auto;
   }
@@ -837,14 +828,6 @@ section h2 {
 
   .hero-actions {
     justify-content: flex-start;
-  }
-
-  .press-inner {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: left;
-    gap: 0.75rem 1.5rem;
   }
 }
 
