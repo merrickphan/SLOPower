@@ -6,6 +6,10 @@
     <title>SLO Power</title>
     <meta property="og:title" content="SLO Power" />
     <meta property="og:type" content="website" />
+    <meta
+      name="description"
+      content="Mobile car detailing in San Luis Obispo by SLO High freshmen. Weekend hours, fair pricing, we come to you."
+    />
     <link rel="preload" href="styles.css" as="style" />
     <link rel="preload" href="images/logo.png" as="image" type="image/png" />
     <link rel="stylesheet" href="styles.css" />
@@ -28,9 +32,11 @@
     </noscript>
   </head>
   <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
     <header class="site-header">
       <div class="header-inner">
-        <a class="logo" href="#" aria-label="SLO Power home">
+        <a class="logo" href="#top" aria-label="SLO Power home">
           <img
             class="logo-img logo-img--glow logo-img--header"
             src="images/logo.png"
@@ -43,19 +49,21 @@
         <nav aria-label="Primary">
           <ul>
             <li><a href="#about">About</a></li>
+            <li><a href="#hours">Hours</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
-        <a class="header-cta" href="#pricing">View pricing</a>
+        <a class="header-cta" href="#contact">Book us</a>
       </div>
     </header>
 
-    <main>
+    <main id="top">
       <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-glow" aria-hidden="true"></div>
         <img
-          class="logo-img logo-img--glow logo-img--hero"
+          class="logo-img logo-img--glow logo-img--hero logo-float"
           src="images/logo.png"
           alt="SLO Power"
           width="400"
@@ -65,18 +73,22 @@
         <p class="eyebrow">San Luis Obispo · Est. 2025</p>
         <h1 id="hero-title" class="hero-title">Local kids. Serious detail.</h1>
         <p class="tagline">Clean and bright, done just right.</p>
-        <p class="badge">SLO High School · Class of 2029</p>
+        <p class="badge">SLO High freshmen · Class of 2029</p>
         <p class="stat">✦ 50+ details completed</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">View packages</a>
+          <a class="btn btn-ghost" href="#contact">Check availability</a>
+        </div>
       </section>
 
       <section id="about" aria-labelledby="about-heading">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <p class="section-label">Who we are</p>
           <h2 id="about-heading">Passionate about every shine</h2>
           <p class="about-lead">
-            We’re a crew of <strong>SLO High freshmen</strong> who love keeping
-            cars looking their best — from first wash to final shine, every
-            vehicle gets treated like our own.
+            We’re <strong>freshmen at San Luis Obispo High School</strong> who
+            love keeping cars looking their best — from first wash to final
+            shine, every vehicle gets treated like our own.
           </p>
           <p>
             Based in <strong>San Luis Obispo</strong>, we come to you: your
@@ -85,8 +97,46 @@
         </div>
       </section>
 
+      <aside class="press-band" aria-label="Press coverage">
+        <div class="section-inner press-inner reveal">
+          <span class="press-kicker">Local coverage</span>
+          <p class="press-text">
+            <a
+              class="press-link"
+              href="https://www.newtimesslo.com/slo-power-is-the-door-to-door-car-detailing-business-run-by-high-school-freshmen-planning-for-college/"
+              rel="noopener noreferrer"
+              target="_blank"
+              >Read our story in <em>New Times SLO</em></a
+            >
+            — door-to-door detailing, college savings, and how we run the
+            business between classes.
+          </p>
+        </div>
+      </aside>
+
+      <section id="hours" aria-labelledby="hours-heading">
+        <div class="section-inner reveal">
+          <p class="section-label">Availability</p>
+          <h2 id="hours-heading">When we’re detailing</h2>
+          <p class="about-lead hours-lead">
+            Most <strong>weekends, 10:00 AM – 5:00 PM</strong> works great for
+            us. Weeknights or other times? Message us — we’ll see what we can do.
+          </p>
+          <div class="hours-pills" role="list">
+            <div class="hours-pill" role="listitem">
+              <span class="hours-pill-label">Weekends</span>
+              <span class="hours-pill-time">10 AM – 5 PM</span>
+            </div>
+            <div class="hours-pill hours-pill--muted" role="listitem">
+              <span class="hours-pill-label">Other times</span>
+              <span class="hours-pill-time">By request</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="services" aria-labelledby="services-heading">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <p class="section-label">What we do</p>
           <h2 id="services-heading">What’s included</h2>
           <div class="services-grid">
@@ -119,14 +169,15 @@
       </section>
 
       <section id="pricing" aria-labelledby="pricing-heading">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <p class="section-label">Packages</p>
           <h2 id="pricing-heading">Pricing</h2>
           <p class="about-lead">
             *Price may vary depending on size &amp; condition of vehicle.
           </p>
           <div class="pricing-grid">
-            <article class="price-card">
+            <article class="price-card price-card--featured">
+              <p class="price-tag">Most popular</p>
               <h3>Premium full detail</h3>
               <p class="price">$200</p>
               <p class="note">Our most complete package</p>
@@ -189,7 +240,7 @@
       </section>
 
       <section id="contact" aria-labelledby="contact-heading">
-        <div class="section-inner">
+        <div class="section-inner reveal">
           <p class="section-label">Reach us</p>
           <h2 id="contact-heading">Book or ask a question</h2>
           <img
@@ -207,6 +258,7 @@
               <p class="big">
                 <a href="tel:8057480912">805-748-0912</a>
               </p>
+              <p class="contact-hint">Best on weekends 10–5; we’ll reply ASAP.</p>
             </div>
             <div class="contact-card">
               <p class="label">Instagram</p>
@@ -218,6 +270,7 @@
                   >@sanluisobispopower</a
                 >
               </p>
+              <p class="contact-hint">DMs open for photos &amp; scheduling.</p>
             </div>
           </div>
         </div>
@@ -239,5 +292,7 @@
         bright, done just right
       </p>
     </footer>
+
+    <script src="main.js" defer></script>
   </body>
 </html>
