@@ -7,6 +7,12 @@
   --text-muted: #c8d8ec;
   --white: #ffffff;
   --gradient-nav: linear-gradient(135deg, #2a6bc4 0%, #4a9de8 100%);
+  /* Cyan aura to match the original shield logo */
+  --logo-glow-core: rgba(186, 244, 255, 0.95);
+  --logo-glow-near: rgba(160, 233, 255, 0.88);
+  --logo-glow-mid: rgba(127, 192, 245, 0.78);
+  --logo-glow-wide: rgba(74, 157, 232, 0.52);
+  --logo-glow-halo: rgba(42, 107, 196, 0.38);
 }
 
 *,
@@ -75,8 +81,12 @@ a:hover {
   text-decoration: none;
 }
 
-.logo:hover {
-  filter: brightness(1.06);
+.logo:hover .logo-img--header {
+  filter:
+    drop-shadow(0 0 2px var(--logo-glow-core))
+    drop-shadow(0 0 8px var(--logo-glow-mid))
+    drop-shadow(0 0 16px var(--logo-glow-wide))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.32));
 }
 
 .logo-img {
@@ -91,11 +101,29 @@ a:hover {
   max-width: 140px;
 }
 
+.logo-img--header.logo-img--glow {
+  filter:
+    drop-shadow(0 0 1px var(--logo-glow-core))
+    drop-shadow(0 0 5px var(--logo-glow-near))
+    drop-shadow(0 0 12px var(--logo-glow-mid))
+    drop-shadow(0 0 22px var(--logo-glow-wide))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.32));
+}
+
 .logo-img--hero {
   width: min(72vw, 240px);
   max-height: min(38vh, 260px);
   margin: 0 auto 0.75rem;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+}
+
+.logo-img--hero.logo-img--glow {
+  filter:
+    drop-shadow(0 0 3px var(--logo-glow-core))
+    drop-shadow(0 0 10px var(--logo-glow-near))
+    drop-shadow(0 0 22px var(--logo-glow-mid))
+    drop-shadow(0 0 40px var(--logo-glow-wide))
+    drop-shadow(0 0 64px var(--logo-glow-halo))
+    drop-shadow(0 12px 32px rgba(0, 0, 0, 0.45));
 }
 
 .logo-img--footer {
@@ -103,14 +131,28 @@ a:hover {
   width: auto;
   margin: 0 auto 1rem;
   opacity: 0.95;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+}
+
+.logo-img--footer.logo-img--glow {
+  filter:
+    drop-shadow(0 0 2px var(--logo-glow-near))
+    drop-shadow(0 0 10px var(--logo-glow-mid))
+    drop-shadow(0 0 20px var(--logo-glow-wide))
+    drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
 }
 
 .logo-img--section {
   height: 72px;
   width: auto;
   margin: 0.75rem auto 1.25rem;
-  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+}
+
+.logo-img--section.logo-img--glow {
+  filter:
+    drop-shadow(0 0 2px var(--logo-glow-near))
+    drop-shadow(0 0 12px var(--logo-glow-mid))
+    drop-shadow(0 0 24px var(--logo-glow-wide))
+    drop-shadow(0 6px 18px rgba(0, 0, 0, 0.36));
 }
 
 nav ul {
