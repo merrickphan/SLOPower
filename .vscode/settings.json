@@ -1,0 +1,5 @@
+{
+  "livePreview.serverRoot": "public",
+  "livePreview.portNumber": 5500,
+  "livePreview.defaultPreviewPath": "/index.html"
+}
