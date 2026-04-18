@@ -621,8 +621,112 @@ section h2 {
   color: var(--accent-hot);
 }
 
-#about .section-inner > p:not(.about-lead) {
+#about .about-copy > p:not(.about-lead):not(.section-label) {
   color: var(--text-muted);
+}
+
+.about-quote {
+  margin: 1.5rem 0 0;
+  padding: 1.15rem 1.15rem 1.15rem 1.35rem;
+  border-left: 4px solid rgba(61, 237, 255, 0.55);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.about-quote p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--text);
+  font-style: italic;
+}
+
+.about-quote footer {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-hot);
+}
+
+.about-layout {
+  display: grid;
+  gap: 2rem 2.75rem;
+  align-items: start;
+}
+
+.about-copy {
+  min-width: 0;
+}
+
+.about-media {
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.about-crossfade {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: min(52vh, 440px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(61, 237, 255, 0.2);
+  box-shadow:
+    var(--shadow-lift),
+    0 0 48px rgba(61, 237, 255, 0.1);
+}
+
+.about-crossfade__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: aboutCrossfadeA 36s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.about-crossfade__img--b {
+  animation-name: aboutCrossfadeB;
+}
+
+@keyframes aboutCrossfadeA {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes aboutCrossfadeB {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  50%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 960px) {
+  .about-layout {
+    grid-template-columns: 1fr minmax(300px, 42%);
+    align-items: center;
+  }
 }
 
 .hours-lead {
@@ -717,33 +821,14 @@ section h2 {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
   gap: 1rem;
   margin-top: 2rem;
 }
 
 @media (min-width: 900px) {
   .services-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .service-card:first-child {
-    grid-column: span 2;
-    grid-row: span 1;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1.25rem;
-    padding: 1.5rem 1.75rem;
-  }
-
-  .service-card:first-child .icon {
-    margin-bottom: 0;
-  }
-
-  .service-card:first-child h3 {
-    font-size: 0.95rem;
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -1195,6 +1280,30 @@ section h2 {
   .hero-logo::before {
     animation: none;
   }
+
+  .about-crossfade__img {
+    animation: none !important;
+    position: relative;
+    inset: auto;
+    opacity: 1;
+    height: auto;
+    max-height: min(38vh, 280px);
+    object-fit: cover;
+    border-radius: var(--radius-md);
+  }
+
+  .about-crossfade {
+    aspect-ratio: auto;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    padding: 0.25rem 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
 }
 
 html.reduce-motion *,
@@ -1237,3 +1346,27 @@ html.reduce-motion .hero-title {
 html.reduce-motion .hero-logo::before {
   animation: none;
 }
+
+html.reduce-motion .about-crossfade__img {
+  animation: none !important;
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  height: auto;
+  max-height: min(38vh, 280px);
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+html.reduce-motion .about-crossfade {
+  aspect-ratio: auto;
+  max-height: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0.25rem 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
