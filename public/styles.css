@@ -945,14 +945,81 @@ section h2 {
   color: var(--accent);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.35rem;
-  margin-top: 1.5rem;
+/* Reach us: heading fixed; only the card row pans. Scrollbar hidden — wheel / touch (main.js). */
+.contact-pan-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+}
+
+.contact-pan-strip {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  outline: none;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.contact-pan-strip::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.contact-pan-strip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.contact-pan-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0.15rem 0 0.35rem;
+}
+
+.contact-pan-cards .contact-card {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  width: min(400px, max(300px, calc(100vw - 2.5rem)));
+  min-width: min(400px, max(300px, calc(100vw - 2.5rem)));
+}
+
+.contact-pan-cards .contact-card--email {
+  width: min(480px, max(320px, calc(100vw - 2rem)));
+  min-width: min(480px, max(320px, calc(100vw - 2rem)));
+}
+
+.contact-pan-cards .contact-card .big {
+  white-space: nowrap;
+}
+
+.contact-pan-cards .contact-card--email .big,
+.contact-pan-cards .contact-card--email .big a {
+  letter-spacing: -0.035em;
+  font-size: clamp(1rem, 2.6vw, 1.48rem);
+}
+
+@media (max-width: 420px) {
+  .contact-pan-cards .contact-card--email .big,
+  .contact-pan-cards .contact-card--email .big a {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 }
 
 .contact-card {
+  min-width: 0;
   padding: 1.65rem 1.5rem;
   border-radius: var(--radius-md);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(3, 5, 10, 0.5));
@@ -988,14 +1055,19 @@ section h2 {
 
 .contact-card .big {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: clamp(1.05rem, 3.8vw, 1.75rem);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.02em;
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  line-height: 1.22;
 }
 
 .contact-card .big a {
   color: inherit;
+  max-width: 100%;
 }
 
 .contact-card .big a:hover {
