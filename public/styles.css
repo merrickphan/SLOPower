@@ -163,20 +163,6 @@ a:hover {
     drop-shadow(0 4px 14px rgba(0, 0, 0, 0.35));
 }
 
-.logo-img--section {
-  height: 72px;
-  width: auto;
-  margin: 0.75rem auto 1.25rem;
-}
-
-.logo-img--section.logo-img--glow {
-  filter:
-    drop-shadow(0 0 2px var(--logo-glow-near))
-    drop-shadow(0 0 12px var(--logo-glow-mid))
-    drop-shadow(0 0 24px var(--logo-glow-wide))
-    drop-shadow(0 6px 18px rgba(0, 0, 0, 0.36));
-}
-
 nav ul {
   list-style: none;
   margin: 0;
