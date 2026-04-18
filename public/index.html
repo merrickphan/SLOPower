@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
@@ -27,12 +27,13 @@
     <noscript>
       <link
         rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap"
       />
     </noscript>
   </head>
   <body>
     <div class="page-bg" aria-hidden="true"></div>
+    <div class="page-noise" aria-hidden="true"></div>
 
     <header class="site-header">
       <div class="header-inner">
@@ -62,52 +63,59 @@
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-logo logo-float">
-          <img
-            class="logo-img logo-img--hero"
-            src="images/logo.png"
-            alt="SLO Power"
-            width="616"
-            height="643"
-            decoding="async"
-          />
-        </div>
-        <p class="eyebrow">San Luis Obispo · Est. 2025</p>
-        <h1 id="hero-title" class="hero-title">Local kids. Serious detail.</h1>
-        <p class="tagline">Clean and bright, done just right.</p>
-        <p class="badge">SLO High freshmen · Class of 2029</p>
-        <p class="stat">✦ 50+ details completed</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#pricing">View packages</a>
-          <a class="btn btn-ghost" href="#contact">Check availability</a>
+        <div class="hero-grid">
+          <div class="hero-visual">
+            <div class="hero-logo-ring" aria-hidden="true"></div>
+            <div class="hero-logo logo-float">
+              <img
+                class="logo-img logo-img--hero"
+                src="images/logo.png"
+                alt="SLO Power"
+                width="616"
+                height="643"
+                decoding="async"
+              />
+            </div>
+          </div>
+          <div class="hero-copy">
+            <p class="eyebrow">San Luis Obispo · Est. 2025</p>
+            <h1 id="hero-title" class="hero-title">Local kids. Serious detail.</h1>
+            <p class="tagline">Clean and bright, done just right.</p>
+            <p class="badge">SLO High freshmen · Class of 2029</p>
+            <p class="stat">✦ 50+ details completed</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#pricing">View packages</a>
+              <a class="btn btn-ghost" href="#contact">Check availability</a>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="about" aria-labelledby="about-heading">
-        <div class="section-inner reveal">
-          <p class="section-label">Who we are</p>
-          <h2 id="about-heading">Passionate about every shine</h2>
-          <p class="about-lead">
+      <section id="about" aria-labelledby="about-heading" class="band band--slant">
+        <div class="section-inner reveal-group">
+          <p class="section-label reveal-item">Who we are</p>
+          <h2 id="about-heading" class="reveal-item">Passionate about every shine</h2>
+          <p class="about-lead reveal-item">
             We’re <strong>freshmen at San Luis Obispo High School</strong> who
             love keeping cars looking their best — from first wash to final
             shine, every vehicle gets treated like our own.
           </p>
-          <p>
+          <p class="reveal-item">
             Based in <strong>San Luis Obispo</strong>, we come to you: your
             driveway, your schedule. No corners cut, no shortcuts taken.
           </p>
         </div>
       </section>
 
-      <section id="hours" aria-labelledby="hours-heading">
-        <div class="section-inner reveal">
-          <p class="section-label">Availability</p>
-          <h2 id="hours-heading">When we’re detailing</h2>
-          <p class="about-lead hours-lead">
+      <section id="hours" aria-labelledby="hours-heading" class="band">
+        <div class="section-inner reveal-group">
+          <p class="section-label reveal-item">Availability</p>
+          <h2 id="hours-heading" class="reveal-item">When we’re detailing</h2>
+          <p class="about-lead hours-lead reveal-item">
             Most <strong>weekends, 10:00 AM – 5:00 PM</strong> works great for
             us. Weeknights or other times? Message us — we’ll see what we can do.
           </p>
-          <div class="hours-pills" role="list">
+          <div class="hours-pills reveal-item" role="list">
             <div class="hours-pill" role="listitem">
               <span class="hours-pill-label">Weekends</span>
               <span class="hours-pill-time">10 AM – 5 PM</span>
@@ -120,11 +128,11 @@
         </div>
       </section>
 
-      <section id="services" aria-labelledby="services-heading">
-        <div class="section-inner reveal">
-          <p class="section-label">What we do</p>
-          <h2 id="services-heading">What’s included</h2>
-          <div class="services-grid">
+      <section id="services" aria-labelledby="services-heading" class="band band--glow">
+        <div class="section-inner reveal-group">
+          <p class="section-label reveal-item">What we do</p>
+          <h2 id="services-heading" class="reveal-item">What’s included</h2>
+          <div class="services-grid reveal-item">
             <div class="service-card">
               <div class="icon" aria-hidden="true">
                 <svg class="icon-svg" viewBox="0 0 24 24" focusable="false">
@@ -238,14 +246,14 @@
         </div>
       </section>
 
-      <section id="pricing" aria-labelledby="pricing-heading">
-        <div class="section-inner reveal">
-          <p class="section-label">Packages</p>
-          <h2 id="pricing-heading">Pricing</h2>
-          <p class="about-lead">
+      <section id="pricing" aria-labelledby="pricing-heading" class="band band--slant band--reverse">
+        <div class="section-inner reveal-group">
+          <p class="section-label reveal-item">Packages</p>
+          <h2 id="pricing-heading" class="reveal-item">Pricing</h2>
+          <p class="about-lead reveal-item">
             *Price may vary depending on size &amp; condition of vehicle.
           </p>
-          <div class="pricing-grid">
+          <div class="pricing-grid reveal-item">
             <article class="price-card price-card--featured">
               <p class="price-tag">Most popular</p>
               <h3>Premium full detail</h3>
@@ -291,7 +299,7 @@
             </article>
           </div>
 
-          <div class="addons">
+          <div class="addons reveal-item">
             <h3>Add-ons</h3>
             <div class="addon-row">
               <span>Wax</span>
@@ -309,11 +317,11 @@
         </div>
       </section>
 
-      <section id="contact" aria-labelledby="contact-heading">
-        <div class="section-inner reveal">
-          <p class="section-label">Reach us</p>
-          <h2 id="contact-heading">Book or ask a question</h2>
-          <div class="contact-grid">
+      <section id="contact" aria-labelledby="contact-heading" class="band band--contact">
+        <div class="section-inner reveal-group">
+          <p class="section-label reveal-item">Reach us</p>
+          <h2 id="contact-heading" class="reveal-item">Book or ask a question</h2>
+          <div class="contact-grid reveal-item">
             <div class="contact-card">
               <p class="label">Call or text</p>
               <p class="big">
