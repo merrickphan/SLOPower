@@ -7,7 +7,8 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "verify": "node --check server.js",
-    "build:logo": "node tools/make-transparent-logo.mjs"
+    "build:logo": "node tools/make-transparent-logo.mjs",
+    "fix:logo-sparkles": "node tools/remove-logo-sparkles.mjs"
   },
   "engines": {
     "node": ">=18"

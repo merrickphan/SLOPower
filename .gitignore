@@ -1,5 +1,6 @@
 node_modules/
 public/images/logo-source.png
+public/images/logo.before-sparkle-removal.png
 .env
 .env.*
 *.log
